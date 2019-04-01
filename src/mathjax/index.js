@@ -11,16 +11,15 @@ import 'mathjax3/mathjax3/input/tex/noundefined/NoUndefinedConfiguration.js';
 import 'mathjax3/mathjax3/input/tex/boldsymbol/BoldsymbolConfiguration.js';
 import 'mathjax3/mathjax3/input/tex/newcommand/NewcommandConfiguration.js';
 import 'mathjax3/mathjax3/input/tex/unicode/UnicodeConfiguration.js';
+import "mathjax3/mathjax3/input/tex/color/ColorConfiguration.js";
 import MathJaxConfig from './mathJaxConfig';
-// import {HTMLDocument} from 'mathjax3/mathjax3/handlers/html/HTMLDocument.js';
-// import {browserAdaptor} from 'mathjax3/mathjax3/adaptors/browserAdaptor.js';
+
 require("./my-BaseMappings.js");
 
 import {BaseConfiguration} from 'mathjax3/mathjax3/input/tex/base/BaseConfiguration.js';
 BaseConfiguration.handler.macro.push('wasysym-mathchar0mo');
 //wasysym-macros
 BaseConfiguration.handler.macro.push('wasysym-macros');
-//import {AllPackages} from './AllPackages.js';
 
 const adaptor = chooseAdaptor();
 RegisterHTMLHandler(adaptor);
