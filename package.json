@@ -2,7 +2,7 @@
     "name": "math-components",
     "version": "1.0.0",
     "description": "Put a description here",
-    "main": "build/index.js",
+    "main": "lib/index.js",
     "scripts": {
         "build": "NODE_ENV=production webpack --config webpack.config.js"
     },
