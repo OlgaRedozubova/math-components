@@ -22,7 +22,7 @@
         "markdown-it-mark": "^2.0.0",
         "markdown-it-sub": "^1.0.0",
         "markdown-it-sup": "^1.0.0",
-        "mathjax3": "https://github.com/OlgaRedozubova/mathjax-v3.git#master-mathjax",
+        "mathjax3": "https://github.com/OlgaRedozubova/mathjax-v3.git",
         "postcss-loader": "^3.0.0",
         "react": "^16.7.0",
         "react-dom": "^16.7.0",
