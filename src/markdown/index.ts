@@ -1,5 +1,4 @@
 import { ConfiguredMathJaxPlugin } from "./mdPluginConfigured";
-import { withLineNumbers } from "./rules";
 
 /** md renderer */
 let md = require("markdown-it")({
@@ -20,13 +19,9 @@ let md = require("markdown-it")({
   .use(require("markdown-it-emoji"))
   .use(require("markdown-it-ins"));
 
-// inject rules override
-md = withLineNumbers(md);
-
 /** String transformtion pipeline */
 // @ts-ignore
 export const markdownToHtmlPipeline = (content: string) => {
-  //md.render(content);
   return md.render(content);
 };
 

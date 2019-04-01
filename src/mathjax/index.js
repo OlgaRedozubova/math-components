@@ -1,43 +1,40 @@
-//import {MathJax} from 'mathjax3/mathjax3/mathjax.js';
-
+import {MathJax as MJ} from 'mathjax3/mathjax3/mathjax.js';
 import {TeX} from 'mathjax3/mathjax3/input/tex.js';
 import {SVG} from 'mathjax3/mathjax3/output/svg.js';
 import {HTMLMathItem} from 'mathjax3/mathjax3/handlers/html/HTMLMathItem.js';
-import {HTMLDocument} from 'mathjax3/mathjax3/handlers/html/HTMLDocument.js';
-//import {browserAdaptor} from 'mathjax3/mathjax3/adaptors/browserAdaptor.js';
 import {RegisterHTMLHandler} from 'mathjax3/mathjax3/handlers/html.js';
 import {chooseAdaptor} from 'mathjax3/mathjax3/adaptors/chooseAdaptor.js';
+
+import 'mathjax3/mathjax3/input/tex/base/BaseConfiguration.js';
+import 'mathjax3/mathjax3/input/tex/ams/AmsConfiguration.js';
+import 'mathjax3/mathjax3/input/tex/noundefined/NoUndefinedConfiguration.js';
+import 'mathjax3/mathjax3/input/tex/boldsymbol/BoldsymbolConfiguration.js';
+import 'mathjax3/mathjax3/input/tex/newcommand/NewcommandConfiguration.js';
+import 'mathjax3/mathjax3/input/tex/unicode/UnicodeConfiguration.js';
+import MathJaxConfig from './mathJaxConfig';
+// import {HTMLDocument} from 'mathjax3/mathjax3/handlers/html/HTMLDocument.js';
+// import {browserAdaptor} from 'mathjax3/mathjax3/adaptors/browserAdaptor.js';
+require("./my-BaseMappings.js");
+
+import {BaseConfiguration} from 'mathjax3/mathjax3/input/tex/base/BaseConfiguration.js';
+BaseConfiguration.handler.macro.push('wasysym-mathchar0mo');
+//wasysym-macros
+BaseConfiguration.handler.macro.push('wasysym-macros');
+//import {AllPackages} from './AllPackages.js';
+
 const adaptor = chooseAdaptor();
 RegisterHTMLHandler(adaptor);
 
-//-require("./my-BaseMappings.js");
-
-//-import {BaseConfiguration} from 'mathjax3/mathjax3/input/tex/base/BaseConfiguration.js';
-//-BaseConfiguration.handler.macro.push('wasysym-mathchar0mo');
-//wasysym-macros
-//-BaseConfiguration.handler.macro.push('wasysym-macros');
-//import {AllPackages} from './AllPackages.js';
-
-import MathJaxConfig from "./mathJaxConfig";
-
-// const texConfig = Object.assign({
-//   packages: AllPackages
-// }, MathJaxConfig.TeX || {});
-
+const texConfig = Object.assign({}, MathJaxConfig.TeX || {});
 const svgConfig = Object.assign({}, MathJaxConfig.HTML || {});
 
-// const tex = new TeX(texConfig);
-// const svg = new SVG(svgConfig);
-const tex = new TeX();
-const svg = new SVG();
+const tex = new TeX(texConfig);
+const svg = new SVG(svgConfig);
 
-const doc = new HTMLDocument(document, {
-  InputJax: tex,
-  OutputJax: svg});
-// let doc = MathJax.document('<html></html>', {
-//   InputJax: tex,
-//   OutputJax: svg
-// });
+let doc = MJ.document(document, {
+  InputJax:tex,
+  OutputJax: svg
+});
 
 export const MathJax = {
   //

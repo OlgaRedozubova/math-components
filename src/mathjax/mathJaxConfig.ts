@@ -1,7 +1,7 @@
 //TODO: use AMS numbering once the package will be available
 const MathJaxConfig = {
     TeX: {
-        packages: ['base', 'ams', 'noundefined', 'boldsymbol', 'newcommand', 'amscd', 'action', 'bbox', 'cancel', 'enclose', 'extpfeil', 'html', 'braket', 'physics', 'unicode', 'verb', 'mhchem'], // extensions to use
+        packages: ['base', 'ams', 'boldsymbol', 'newcommand', 'unicode'], // extensions to use
         TagSide: "right", // side for \tag macros
         TagIndent: "0.8em", // amount to indent tags
         MultLineWidth: "85%", // width of multline environment

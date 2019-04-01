@@ -1,5 +1,6 @@
 import * as React from "react";
 import {MathJax} from '../../mathjax';
+import {MathpixStyle} from './styles';
 
 class MathpixLoader extends React.Component {
     /** the state of the component */
@@ -11,10 +12,19 @@ class MathpixLoader extends React.Component {
     private loadMathJax() {
         // load the script tag
         // @ts-ignore
-        console.log('MathJax=>', MathJax);
         try {
-            //console.log('MathJax.Stylesheet()=>', MathJax.Stylesheet())
-            //document.head.appendChild(MathJax.Stylesheet());
+            const el = document.getElementById('SVG-styles');
+            if (!el) {
+                document.head.appendChild(MathJax.Stylesheet());
+            }
+
+            const elStyle = document.getElementById('Mathpix-styles');
+            if (!elStyle) {
+                const style = document.createElement("style");
+                style.setAttribute("id", "Mathpix-styles");
+                style.innerHTML = MathpixStyle;
+                document.head.appendChild(style)
+            }
             this.setState({isReadyToTypeSet: true});
         } catch (e) {
             console.log('Error load MathJax =>', e.message);
@@ -26,7 +36,6 @@ class MathpixLoader extends React.Component {
     render() {
         if (this.state.isReadyToTypeSet) {
             return <div id="content">{this.props.children}</div>
-
         }
         return <div>Loading</div>;
     }

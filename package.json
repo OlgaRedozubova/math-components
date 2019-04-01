@@ -23,12 +23,22 @@
         "markdown-it-sub": "^1.0.0",
         "markdown-it-sup": "^1.0.0",
         "mathjax3": "https://github.com/OlgaRedozubova/mathjax-v3.git#dev/olga/master-mathjax",
+        "postcss-loader": "^3.0.0",
         "react": "^16.7.0",
         "react-dom": "^16.7.0",
+        "react-emotion": "^10.0.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.4.0",
+        "@babel/polyfill": "^7.4.0",
+        "babel-loader": "^8.0.5",
+        "css-loader": "^2.1.1",
+        "mini-css-extract-plugin": "^0.5.0",
+        "style-loader": "^0.23.1",
+        "terser-webpack-plugin": "^1.2.3",
         "ts-loader": "^5.3.3",
         "typescript": "^3.2.4",
         "webpack": "4.28.3",
         "webpack-cli": "^3.2.1"
-    },
-    "devDependencies": {}
+    }
 }
